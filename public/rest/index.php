@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'PUT') {
 	$_REQUEST['json_data'] = $_DELETE['json_data'];
 }
 
-if (!isset($PHP_AUTH_USER)) {
+if (!isset($PHP_AUTH_USER)  || !isset($PHP_AUTH_PW))) {
     header('WWW-Authenticate: Basic realm="MyRealm"');
     header('HTTP/1.0 401 Unauthorized');
     echo json_encode(array('error'=>'Authentication Required'));
